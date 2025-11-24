@@ -801,74 +801,119 @@
         const WHATSAPP_NUMBER = "917063768616"; 
 
         /* DATA: DEFAULT PRODUCTS */
-        const defaultProducts = [
-            {
-                id: 1,
-                title: "Atomic Habits by James Clear – Build Better Habits, Change Your Life",
-                price: 169.00,
-                category: "Books",
-                rating: 3.5,
-                stock: 50,
-                description: "Author: James Clear | Publish Year: 2018 | Publisher: Avery (Penguin Random House) | Language: English | Category: Self-Improvement & Productivity | Format: Paperback | Reading Age: Teens to Adults | ISBN-13: 978-0735211292",
-                facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/584962100_122101751355124731_1198467793672618539_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eTrSGCy6K_gQ7kNvwESnL0S&_nc_oc=AdlRvZHfV03fQs0KyArjulYdiTeEzkuvVtXkEM_id8FCuaPrepnaeqzSOj1Aa0u6uauOYAucxcgwyBBPWkUXj8YT&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=CVIwE5t1i_ZIVXn7VCnAtA&oh=00_AfgIZ8jfjiTuX2rXlqEU5EcoQXtvMm1RtrhjNoIcek3-Ew&oe=6923B32C", 
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            },
-            {
-                id: 2,
-                title: "How to Stop Overthinking Forever",
-                price: 119.00,
-                category: "Books",
-                rating: 4.0,
-                stock: 40,
-                description: "A practical guide that helps balance your lifestyle, mind, and emotions to control overthinking. It offers simple techniques to reduce stress, manage negative thoughts, improve decisions, and build a calm mindset with easy, daily-use tips.",
-                facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/584489587_122101779789124731_1155693667144832966_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9DRB6rE8SwgQ7kNvwE49nrN&_nc_oc=AdkqzopJjk28w3k_wYpBX1KK1-jaSrrfa6V1zgEmznZwDM0zF-THMRgrn2mYXFlcgq28Ouyd_y9Z4BT643ijuRkQ&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=5NqM6gVQtjbYe3mgFjFLhQ&oh=00_AfhsU6y9qs8_V4JiR1FcVF0Ddqtoa1xlJnOCuZUOjfWPow&oe=6923E21C",
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            },
-            {
-                id: 3,
-                title: "Master Your Emotions – A Practical Guide to Understanding & Controlling Your Feelings",
-                price: 110.00,
-                category: "Books",
-                rating: 5,
-                stock: 30,
-                description: "A simple guide that teaches how to understand your feelings, stay emotionally balanced, reduce stress, and replace negative patterns with healthier habits using practical, everyday techniques.",
-                facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/584723247_122101763751124731_5457242597783184644_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=GUEMRn5jOfEQ7kNvwEt8Rld&_nc_oc=Adn5YTRSmXYqGAaJ_jNdM_Je4heDnjbP723iId7K_aE95bqO7lyX_NuK7TpQYr_njP0Wm_Whdiks0qd406auCQte&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=mcv6scESENPxOJM40pO2Hg&oh=00_AfgwngYOXHGRz2cFUhkt8wSTdMNWFi8pEspRvic3Xkv4JA&oe=6923BDA7",
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            },
-            {
-                id: 4,
-                title: "Latibule Kesar Chandan Face Wash – Gentle Daily Cleanser",
-                price: 99.00,
-                category: "Skincare",
-                rating: 4,
-                stock: 100,
-                description: "This face wash uses a mild blend of kesar and chandan that gently cleans the skin and leaves it feeling fresh. With regular use, it helps remove dirt, oil, and dust, keeping the skin naturally soft and refreshed.",
-                facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/584907490_122101786263124731_1981034737841560315_n.webp?stp=dst-jpg_p526x296_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=W9QlXVsywbIQ7kNvwG9W00K&_nc_oc=AdmH40ylrCi5lfc3bfS3bHJ4KZQogugV6KIUdiRSDgIQJpAsVd5xt7yk9UcW2lARo8aZ_MfkVxRW5iQlMMqIs512&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=-szF2qZFUKotHvLOOiSrfQ&oh=00_AfilpdShAcGIgKITOvpQyZ_TgnNhZzbYUEt1fkC8grFXZQ&oe=6923E184",
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            },
-            {
-                id: 5,
-                title: "DUCHMAN Lovely Weather Long Lasting Fragrance",
-                price: 259.00,
-                category: "Fragrances",
-                rating: 4,
-                stock: 25,
-                description: "This premium fragrance set is perfect for daily use, office, college, or any special occasion. The compact bottles are travel-friendly, and each scent provides a refreshing, long-lasting fragrance.",
-                facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/584663885_122101799037124731_8361945959300781507_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ymbT1lkUs8YQ7kNvwFt8QlE&_nc_oc=AdkUmC2w3jsW9iSuAWYVScCWqPJnHybnjfQ-l-Z1xoxnf1KcGYunBtS2hdJBBSvx7eR4kO03fogPuth8I9BOQCa8&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=UXtjq-mQILqWhvPHYKyUEg&oh=00_AfhMYYtk6UCJND3Yp526-tyc3f8aNnP3RTL2BiwABVxd5A&oe=6923D449",
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            },
-            {
-                id: 6,
-                title: "Healthy Mix Dry Fruits, Nuts & Seeds – 200g",
-                price: 210.00,
-                category: "Food & Drinks",
-                rating: 5,
-                stock: 200,
-                description: "This premium Healthy Mix includes a balanced blend of dry fruits, nuts, and seeds. Perfect for daily snacking, breakfast bowls, or adding extra nutrition to your meals.",
-                facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/586554038_122101815363124731_8500885477829672333_n.webp?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=xCzuu5LrU3YQ7kNvwFW1NfZ&_nc_oc=AdlVobmnEVH2i_6-80xaHHFEdv8kOe0oeCqCKSuDKsUlNwWUiPUuhGTpwgcErrl-KbYp2omXO22236HgrGoKaQJB&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=NZqjJShFK05uicp0RoPGfQ&oh=00_AfjvdEEx-iCQF5Isx5uoHJGLTHHQ7g60HzL36DuZEdVdag&oe=6923F0EE",
-                fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-            }
-        ];
+       const defaultProducts = [
+  {
+    id: 1,
+    title: "Lightweight South Indian Jewellery Set",
+    price: 219,
+    category: "Jewellery & Accessories",
+    rating: 4.5,
+    stock: 10,
+    description: "Experience the charm of South Indian tradition with this lightweight gold-plated temple jewellery set featuring floral & peacock motifs and matching jhumka earrings — perfect for weddings, festivals and ethnic wear.",
+    facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/588976329_122105602221124731_3514570380443388267_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Lq_9ptSIPqgQ7kNvwG4NzGa&_nc_oc=AdlIZkF9QKxztgiDZfIkHSskafa07dOB__hj7HQJjDQojMshxDTQOeBGI9lAl6jaOXugXK1DLznI6OWx7vtdame4&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=DC4smj3dVytf1DhcUR1w4w&oh=00_Afg0JnxdXxA32V6lzz2xErlfhj7zznfClt0KkDhZCi8DxA&oe=692A6BC5",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 2,
+    title: "Perfect gift for women & girls",
+    price: 179,
+    category: "Jewellery & Accessories",
+    rating: 4.5,
+    stock: 100,
+    description: "Elegant gold-plated pendant set with sparkling stones and matching earrings — lightweight, skin-friendly and perfect for daily wear, parties and special occasions with both Western and traditional outfits. ✨",
+    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589339077_122105603121124731_1175150372668725204_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=gyyev2DarfYQ7kNvwEdreFV&_nc_oc=AdkOdFSaO2Jk7UwYt_RPMdyHp4KmqhlFp7HlvFS5Y91NFcHa0tx5cNa0yhD0E0xk1DL3Pwj0SBmbcsqJ1S7ZktxL&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=5GHVB2WJSWh7wYuVlI0zlg&oh=00_AfgMEDWXA1XOrU0YtVpmmwvsFsMwZReoex9J_VYh9wGhvA&oe=692A4190",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 3,
+    title: "Antique long necklace with matching earrings",
+    price: 389,
+    category: "Jewellery & Accessories",
+    rating: 4.5,
+    stock: 100,
+    description: "Beautiful antique long temple jewellery set with premium gold-plated finish and matching earrings — lightweight, skin-friendly and perfect for weddings, festivals, parties and all special ethnic occasions. ✨",
+    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589021609_122105606217124731_5027186269249304333_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=4f3d1wh-1owQ7kNvwGT9xoi&_nc_oc=AdmLKlXiQ_rkun0XhG-AMN9t4-VwxcHf-EJH12Mh2i3wWqZG9KFIgtR5a0eqn_ZvwqBfDTRAtCg8YWInWfkwNmus&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=MKMq5lJOFyce_tB2ddWsKQ&oh=00_AfjA0KOu9l6ZUWRKZ41gqQb229svf_338j-BWadATHiKOg&oe=692A3CA4",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 4,
+    title: "Luxury gold-tone shine that lasts for years",
+    price: 489,
+    category: "Jewellery & Accessories",
+    rating: 4.5,
+    stock: 100,
+    description: "Tarnish-free waterproof clover jewellery set with necklace, earrings and ring — keeps its gold shine without fading or rusting, lightweight and skin-friendly, perfect for office, parties and daily wear with Western or ethnic outfits. ✨",
+    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589323853_122105609415124731_7068192762721744857_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=KoZBVR5qxYEQ7kNvwE7yTFg&_nc_oc=AdlSOYnS7usC2_4vOtFy1uIRl5f7lJHVz_BNgBDV7x_qO56jnNozLPUex0TlQcs6gKiK31XCKf-QmIShs_M_tKsa&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=tB7H8JrkkPhhITSZrEgP5w&oh=00_AfgaYMQFiMjael22PsHPrwqW9BQSSJlgcNccz4pp-lmLkQ&oe=692A5494",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 6,
+    title: "Available Sizes: L & XL",
+    price: 419,
+    category: "Women’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: "Black & white A-line floral dress made from soft, breathable fabric — stylish, flowy and flattering for all body types, perfect for office, college, casual outings and parties. ✨",
+    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/588752077_122105611833124731_611473601390095039_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=oeoeWJEPu5oQ7kNvwGf2xB4&_nc_oc=AdkFjD8GG1xJOB2WEZJ3niIu7DsvPsgoh7070GUs5Ebupf2wlftApxInDs2QhWtVe2dXdfXm_d2-8WSl81lDHvwg&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=mW9twcH3mIMGLI6DDbFXGQ&oh=00_AfiJYMArQZZOh8KaLvug4_S_lre5WyUA-AW8pSded-OlRA&oe=692A6CEC",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 7,
+    title: "Perfect Gift for Women",
+    price: 419,
+    category: "Women’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: "Black fit & flare maxi dress in soft cotton blend with floral print, round neck and short sleeves — flattering, comfortable and perfect for daily wear, college, casual outings and informal gatherings. ✨",
+    facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/589588209_122105612967124731_7398932561858807851_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7cPJJmXbFL8Q7kNvwHtmhUl&_nc_oc=AdncWu3x3wxFgoa_kjnyrz9l12RePcc_QP9XrTiu-7VmWxd3__HmkESSZguJzLynuukJThrWCvkMvTNHmz8g-Kwc&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=-5BwdiBmUjJxPUP7oKdomg&oh=00_AfjdkVix-UEbnkyOcW_-osEb1b81NoAri_ZHL7XFTgsXDQ&oe=692A650B",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 8,
+    title: "Blue Saree with White Blouse",
+    price: 329,
+    category: "Women’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: "Blue handloom khadi cotton saree with solid pattern, tassel pallu and matching blouse piece — soft, breathable and perfect for festive wear, parties and everyday elegant styling. ✨",
+    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589323860_122105613417124731_252424115351349736_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ZgJqP8UGXK0Q7kNvwHDdVIL&_nc_oc=AdnRFBt3KX5WohCXFpkO5742NZEwKZ4pvR3yA-7iNtMdIPKcxQXrjC6YkwGIbyPyIbbLJHiGbu0OH9IJAtjIBTNF&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=1hGF9Ne30maMwKAn1C5nJQ&oh=00_Afg5PjsKayJbA3MH5TAZmqpzZFIYLlRgYcoKcphPwbws0g&oe=692A5BBB",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 9,
+    title: "White Sambalpuri Cotton Printed Saree for Women",
+    price: 429,
+    category: "Women’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: " White Sambalpuri cotton saree with botanical print, big printed border and printed pallu — soft, elegant and perfect for parties, festive functions and family gatherings. (Note: blouse piece not included) ✨",
+    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589403552_122105615901124731_1370191619542719306_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=IfdzvgEC1M0Q7kNvwG1Af3x&_nc_oc=Adm_z6f9LxS2gyqktdfxIw84NJk3FxdSiKlQWoiv10BAkYIwAPP_kqlJaIusSvvgfjeZVLcOCowyJkfDfnMjAJYx&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=jeBeWwhBtOmVZqEZpTqQkA&oh=00_AfhoZ3SFlrjctnWkekx030sLl1VM7_kczyLBu3CCDCmBSw&oe=692A5716",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+   
+  },
+  {
+    id: 10,
+    title: "Stylish Winter Fleece Hood Jacket for Men | Regular Fit",
+    price: 619,
+    category: "men’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: "Black fleece hooded jacket made from soft warm fabric with long sleeves, cuffed design and zip closure — cozy, stylish and perfect for daily wear and casual outings. 🖤✨",
+    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589354338_122105617581124731_7708289108035304924_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=DRGYt7zUmo8Q7kNvwHpUaX9&_nc_oc=Adnb6NyvgaO7kh_-Jmezo-3ofdPIC96JhZs8n1LzjIl4nDx5Anz84S50kfaalOFqoilFWoqUsrEwSicoBf9LezuM&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=op-6qAxoBYZ3bmKur0jISQ&oh=00_Afj0_NVFzgTfFxAfwimvt5XGkvVTLbCGULg5CNcM_h3Ihg&oe=692A4964",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  },
+  {
+    id: 11,
+    title: "Men’s White Typographic Printed Fleece Sweatshirt",
+    price: 389,
+    category: "men’s Clothing / Apparel",
+    rating: 4.5,
+    stock: 100,
+    description: "Soft fleece sweatshirt with trendy typographic print, round neck and cuffed long sleeves — warm, breathable and perfect for winter, college, casual outings and daily wear with effortless layering. ✨",
+    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589074409_122105621301124731_8343346721386994569_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=agv7Q2K2nRgQ7kNvwGByILz&_nc_oc=Adk2p4jtCZxj6vqq8Eq9JIQRrBjdmt7ZVdpvjTSc6ubeVuvj4pw8_StmZLshExVOSk1aSloOSFjeqduU1zsWAzOB&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=PrQD27qDxucf5c5ttQCuAA&oh=00_AfgO6o1vZBuWv0-V4HJugXzlsbgSIvB6TylWLu63_AEDyA&oe=692A4AE7",
+    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
+  }
+];
 
         /* =========================================
            STATE & INITIALIZATION
