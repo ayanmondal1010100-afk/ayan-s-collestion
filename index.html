@@ -3,978 +3,1121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ayan’s Collection - Premium fashion, accessories, and lifestyle products. curated for elegance.">
-    <meta name="theme-color" content="#1a1a1a">
-    <title>Ayan’s Collection | Premium E-Commerce</title>
-    <link rel="canonical" href="https://ayanscollection.com" />
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ayan’s Collection",
-      "url": "https://ayanscollection.com",
-      "logo": "https://ayanscollection.com/images.png",
-      "description": "Premium curated lifestyle products."
-    }
-    </script>
-
+    <title>TRIO LOCK | AI Security Architecture</title>
     <style>
-        /* =========================================
-           1. THEME VARIABLES & RESET
-           ========================================= */
         :root {
-            --bg-body: #f9f9f9;
-            --bg-card: #ffffff;
-            --text-main: #1a1a1a;
-            --text-muted: #666666;
-            --accent-color: #D4AF37; /* Gold */
-            --accent-hover: #b5952f;
-            --dark-header: #111111;
-            --border-light: #e5e5e5;
-            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
-            --shadow-hover: 0 15px 40px rgba(0,0,0,0.1);
-            --container-width: 1200px;
-            --header-height: 70px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --cyan: #00F2FF;
+            --purple: #9B4DFF;
+            --mint: #00FFC8;
+            --void: #050505;
+            --glass: rgba(0, 10, 20, 0.65);
+            --border: rgba(0, 242, 255, 0.3);
+            --font-hud: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        html { scroll-behavior: smooth; font-size: 16px; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; height: auto; }
-        button { font-family: inherit; cursor: pointer; border: none; background: none; }
-        input, textarea, select { font-family: inherit; }
-
-        /* =========================================
-           2. UTILITIES & COMPONENTS
-           ========================================= */
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .btn-sm { padding: 6px 12px; font-size: 0.8rem; }
-        .btn-xs { padding: 4px 8px; font-size: 0.75rem; }
-
-        .btn-primary {
-            background-color: var(--text-main);
-            color: #fff;
-        }
-        .btn-primary:hover { background-color: var(--accent-color); transform: translateY(-2px); }
-
-        .btn-outline {
-            border: 1px solid var(--border-light);
-            background: transparent;
-            color: var(--text-main);
-        }
-        .btn-outline:hover { border-color: var(--text-main); }
-        
-        .skip-link {
-            position: absolute; top: -40px; left: 0; background: var(--accent-color); color: white; padding: 8px; z-index: 9999;
-        }
-        .skip-link:focus { top: 0; }
-
-        /* =========================================
-           3. HEADER & NAV
-           ========================================= */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-            height: var(--header-height);
-        }
-
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--text-main);
-        }
-        .logo span { color: var(--accent-color); }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
-        .nav-links a:hover { color: var(--text-main); }
-
-        .header-actions { display: flex; gap: 15px; align-items: center; }
-        
-        .icon-btn { font-size: 1.2rem; position: relative; }
-
-        .cart-trigger { position: relative; font-size: 1.2rem; }
-        .cart-count {
-            position: absolute;
-            top: -5px; right: -8px;
-            background: var(--accent-color);
+            background-color: var(--void);
             color: white;
-            font-size: 0.7rem;
-            width: 18px; height: 18px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-hud);
+            overflow-x: hidden;
+            /* cursor: none;  // Remove custom cursor for better mobile experience */
         }
 
-        .menu-toggle { display: none; font-size: 1.5rem; }
-
-        /* =========================================
-           4. HERO SECTION
-           ========================================= */
-        .hero {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #ffffff, #f4f4f4);
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
+        /* BACKGROUND VIDEO - Full screen, muted, looping, low opacity */
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -10;
+            opacity: 0.4; 
+            filter: brightness(0.9);
         }
 
-        /* =========================================
-           5. FILTERS & SEARCH
-           ========================================= */
-        .controls-bar {
-            padding: 30px 0;
+        /* START SCREEN (New Requirement) */
+        #start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)), url('your_background_image_path.jpg'); /* Fallback image */
+            background-size: cover;
+            z-index: 6000;
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--cyan);
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        #start-screen h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px var(--cyan);
+        }
+
+        #enter-btn {
+            padding: 20px 60px;
+            background: transparent;
+            border: 2px solid var(--mint);
+            color: var(--mint);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+            clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+        }
+
+        #enter-btn:hover {
+            background: rgba(0, 255, 200, 0.1);
+            box-shadow: 0 0 30px var(--mint), 0 0 5px white;
+        }
+
+
+        /* CUSTOM CURSOR (Keep for desktop, but disabled on body for better mobile) */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--cyan);
+            border-radius: 50%;
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background 0.2s;
+            box-shadow: 0 0 10px var(--cyan);
+        }
+        
+        #cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--mint);
+            position: fixed;
+            border-radius: 50%;
+            z-index: 10000;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        /* SOUND CONTROLLER */
+        .sound-toggle {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        /* Sound is UNMUTED by default after 'ENTER' */
+        .sound-toggle.muted .bar { animation: none; height: 2px !important; }
+        .sound-toggle.muted .sound-icon { 
+            box-shadow: none !important; 
+            border-color: #555 !important; 
+            color: #555 !important;
+        }
+
+
+        .sound-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px var(--cyan);
+            animation: pulse-ring 2s infinite;
+            color: var(--cyan); /* Ensure icon color is right */
+        }
+
+        .sound-bars {
+            display: flex;
+            gap: 3px;
+            height: 15px;
             align-items: center;
         }
-        
-        .search-box {
-            position: relative;
-            flex: 1;
-            max-width: 300px;
+
+        .bar {
+            width: 2px;
+            background: var(--mint);
+            height: 100%;
+            animation: equalizer 0.8s infinite ease-in-out;
+            transition: height 0.2s;
         }
-        .search-box input {
+        
+        .bar:nth-child(2) { animation-delay: 0.1s; }
+        .bar:nth-child(3) { animation-delay: 0.2s; }
+
+
+        /* PRELOADER */
+        #boot-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid var(--border-light);
-            border-radius: 50px;
-            outline: none;
-        }
-        .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; }
-
-        .filter-group { display: flex; gap: 10px; flex-wrap: wrap; }
-        .filter-btn {
-            padding: 8px 16px;
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            transition: 0.2s;
-        }
-        .filter-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
-
-        /* =========================================
-           6. PRODUCT GRID & CARDS
-           ========================================= */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            height: 100%;
+            background: black;
+            z-index: 5000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--cyan);
+            transition: opacity 0.5s;
         }
 
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            animation: fadeIn 0.5s ease;
+        .loader-text { 
+            margin-top: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            font-size: 14px;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--border-light);
-        }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .card-image-wrapper {
+        .loader-bar {
+            width: 300px;
+            height: 2px;
+            background: #333;
+            margin-top: 10px;
             position: relative;
-            aspect-ratio: 1 / 1;
-            background: #eee;
             overflow: hidden;
         }
-        .card-image-wrapper img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s ease;
+
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--cyan);
+            box-shadow: 0 0 10px var(--cyan);
+            transition: width 0.1s;
         }
-        .product-card:hover .card-image-wrapper img { transform: scale(1.05); }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        /* Glitch text styles remain the same */
+        .glitch {
+            position: relative;
+            font-size: 5rem;
+            color: white;
+            text-shadow: 2px 2px var(--purple), -2px -2px var(--cyan);
+        }
+        /* ... (rest of glitch styles) ... */
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--void);
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 var(--purple);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-1 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 var(--cyan);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+
+        .neon-text {
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--mint);
+            letter-spacing: 2px;
+            margin-top: 20px;
+            opacity: 0.8;
+            max-width: 600px;
+        }
+
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 5%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-btn {
+            margin-top: 50px;
+            padding: 20px 40px;
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 30px var(--cyan);
+            text-shadow: 0 0 10px white;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced Glass Card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px); /* Increased blur */
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+            border-left: 4px solid var(--cyan); /* Thicker accent border */
+            padding: 40px;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px; /* Slight rounding for modern look */
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 255, 0.3); /* Stronger hover shadow */
+            border-color: var(--mint);
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.07), transparent); /* Stronger sheen */
+            transform: rotate(45deg);
+            animation: sheen 6s infinite;
+        }
+
+        #about .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .icon-holo {
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--purple));
+        }
         
-        .card-badge {
-            position: absolute; top: 10px; left: 10px;
-            background: white; padding: 4px 10px;
-            font-size: 0.75rem; font-weight: 700;
+        /* Timeline styles remain the same for structure, but utilize improved glass-card */
+        #timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-50%);
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--cyan), var(--purple));
+            transform: translateX(-50%);
+            height: 0%;
+            box-shadow: 0 0 15px var(--cyan);
+            transition: height 1s linear;
+        }
+
+        .timeline-item {
+            width: 45%;
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s var(--ease);
+        }
+
+        .timeline-item:nth-child(odd) { 
+            align-self: flex-start; 
+            text-align: right; 
+            left: 0; 
+            padding-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) { 
+            align-self: flex-end; 
+            margin-left: 55%; 
+            padding-left: 40px;
+        }
+
+        .timeline-item.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        .step-number {
+            font-size: 4rem;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            font-weight: 900;
+        }
+        
+        .timeline-item:nth-child(odd) .step-number { right: 20px; }
+        .timeline-item:nth-child(even) .step-number { left: 20px; }
+
+        #features .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        #team .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        /* Team card styles remain the same (they were already good) */
+        .team-member-card {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 4px;
+            background: linear-gradient(135deg, rgba(0, 10, 30, 0.95), rgba(5, 15, 40, 0.8));
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 242, 255, 0.2); 
+            border-top: 3px solid var(--mint);
+            border-bottom: 3px solid var(--purple);
+            box-shadow: 0 0 5px rgba(0, 242, 255, 0.2), 0 0 15px rgba(155, 77, 255, 0.3); 
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px var(--cyan), 0 0 25px var(--purple);
+        }
+
+        .team-member-card img {
+            width: 110px; 
+            height: 110px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 4px solid var(--mint);
+            box-shadow: 0 0 15px var(--mint), inset 0 0 15px rgba(0, 255, 200, 0.5);
+            margin-bottom: 20px;
+            filter: saturate(1.5) contrast(1.1);
+            z-index: 2;
+        }
+        
+        .team-member-card h4 {
+            font-size: 1.5rem;
+            color: var(--cyan); 
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--cyan); 
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        
+        .team-member-card p {
+            font-size: 0.9rem; 
+            color: var(--purple); 
+            font-weight: 700;
+            margin-bottom: 15px;
+            z-index: 2;
+        }
+        
+        .team-member-card div {
+            font-size: 0.75rem;
+            color: var(--mint);
+            border-top: 1px solid rgba(0, 242, 255, 0.3);
+            padding-top: 10px;
+            width: 90%;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        /* DEMO SECTION WITH VIDEO */
+        #demo {
+            text-align: center;
+        }
+        
+        .demo-frame {
+            /* Futuristic Design for the Video Frame */
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 50px auto 20px; 
+            
+            background: linear-gradient(145deg, rgba(0, 15, 30, 0.9), rgba(0, 0, 0, 0.95));
+            border: 1px solid rgba(0, 242, 255, 0.4);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2), 0 0 60px rgba(155, 77, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            
+            transform-style: preserve-3d; 
+            transition: transform 0.4s ease-out; 
+            
+        }
+
+        /* Video element inside the frame */
+        .demo-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+        }
+
+        /* Demo controls are now OUTSIDE the frame */
+        .demo-controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .demo-btn {
+            padding: 12px 25px;
+            background: rgba(0, 242, 255, 0.15); 
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
             border-radius: 4px;
         }
 
-        .card-details { padding: 20px; }
-        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
-        .card-cat { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .card-price { font-size: 1rem; font-weight: 700; color: var(--accent-color); margin-top: 10px; display: block; }
+        .demo-btn:hover {
+            background: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 20px var(--cyan);
+        }
         
-        .card-actions {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
+        /* Mute button specific style */
+        #demo-mute-btn.muted {
+            background: rgba(155, 77, 255, 0.2);
+            border-color: var(--purple);
+            color: var(--purple);
+            box-shadow: 0 0 10px var(--purple);
         }
-        .btn-card { flex: 1; font-size: 0.85rem; padding: 10px; }
+        #demo-mute-btn:hover {
+            background: rgba(0, 242, 255, 0.3);
+        }
+
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 50px 0;
+            background: black;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #666;
+            text-align: center;
+        }
+
+        .hud-line {
+            width: 100px;
+            height: 2px;
+            background: var(--cyan);
+            margin: 20px auto;
+            box-shadow: 0 0 10px var(--cyan);
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(30px, 9999px, 10px, 0); }
+            50% { clip: rect(80px, 9999px, 90px, 0); }
+            100% { clip: rect(10px, 9999px, 40px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(120px, 9999px, 140px, 0); }
+            50% { clip: rect(10px, 9999px, 50px, 0); }
+            100% { clip: rect(100px, 9999px, 110px, 0); }
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 242, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
+        }
+
+        @keyframes equalizer {
+            0%, 100% { height: 30%; }
+            50% { height: 100%; }
+        }
+
+        @keyframes sheen {
+            0% { transform: rotate(45deg) translate(-100%, -100%); }
+            20% { transform: rotate(45deg) translate(100%, 100%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
         
-        .img-placeholder {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            width: 100%; height: 100%;
-            background: #f0f0f0; color: #aaa;
-            text-align: center; padding: 20px;
+        @media (max-width: 1000px) {
+            #team .team-grid { grid-template-columns: repeat(2, 1fr); }
+            #about .about-grid { grid-template-columns: 1fr; }
+            .glitch { font-size: 4rem; }
         }
 
-        /* =========================================
-           7. PORTFOLIO / ABOUT / LEGAL
-           ========================================= */
-        .legal-section {
-            background: white;
-            padding: 60px 0;
-            border-top: 1px solid var(--border-light);
-        }
-        .legal-text { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
-        .legal-text h3 { color: var(--text-main); margin: 20px 0 10px; }
-
-        /* =========================================
-           8. MODALS & DRAWERS
-           ========================================= */
-        .modal-backdrop {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            opacity: 0; visibility: hidden;
-            transition: 0.3s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .modal-backdrop.open { opacity: 1; visibility: visible; }
-
-        /* Product Detail Modal */
-        .modal-content {
-            background: white;
-            width: 90%; max-width: 900px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            max-height: 90vh;
-        }
-        @media(min-width: 768px) {
-            .modal-content { flex-direction: row; }
+        @media (max-width: 600px) {
+            #team .team-grid { grid-template-columns: 1fr; }
+            .glitch { font-size: 3rem; }
+            .demo-frame { height: 300px; }
+            .sound-toggle { right: 20px; top: 20px; }
+            #start-screen h2 { font-size: 1.5rem; }
+            #enter-btn { padding: 15px 40px; font-size: 1rem; }
+            .demo-controls { flex-wrap: wrap; }
         }
 
-        .modal-image { flex: 1; background: #f4f4f4; position: relative; min-height: 300px; }
-        .modal-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
-        
-        .modal-info { flex: 1; padding: 40px; overflow-y: auto; }
-        .modal-close { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; z-index: 10; background: white; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-
-        /* Cart Drawer */
-        .cart-drawer {
-            position: fixed; top: 0; right: 0; bottom: 0;
-            width: 100%; max-width: 400px;
-            background: white;
-            z-index: 1001;
-            transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex; flex-direction: column;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-        }
-        .cart-drawer.open { transform: translateX(0); }
-        
-        .cart-header { padding: 20px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
-        .cart-items { flex: 1; overflow-y: auto; padding: 20px; }
-        .cart-footer { padding: 20px; border-top: 1px solid var(--border-light); background: #f9f9f9; }
-
-        .cart-item { display: flex; gap: 15px; margin-bottom: 15px; }
-        .cart-item-img { width: 70px; height: 70px; border-radius: 4px; object-fit: cover; background: #eee; }
-        .cart-item-details { flex: 1; }
-        .qty-controls { display: flex; gap: 10px; align-items: center; margin-top: 5px; }
-        .qty-btn { width: 24px; height: 24px; background: #eee; border-radius: 4px; display: grid; place-items: center; font-size: 0.8rem; }
-
-        /* Checkout Modal Specifics */
-        .checkout-modal-content {
-            background: white; padding: 30px; width: 90%; max-width: 500px; border-radius: var(--radius-lg); position: relative;
-        }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
-        .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: 0.2s; }
-        .form-input:focus { border-color: var(--accent-color); }
-
-        /* Toast Notification */
-        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 4px; padding: 16px; position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 17px; opacity: 0; transition: opacity 0.3s, bottom 0.3s; }
-        #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
-
-        /* Order History Modal Specifics */
-        .history-item { border-bottom: 1px solid #eee; padding: 10px 0; }
-        .history-date { font-size: 0.8rem; color: #888; }
-        .history-total { font-weight: bold; color: var(--accent-color); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .cart-drawer { width: 100%; }
-        }
     </style>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <video id="video-bg" loop muted playsinline autoplay>
+        <source src="your_background_video_url_or_path.mp4" type="video/mp4">
+    </video>
 
-    <header>
-        <div class="container nav-flex">
-            <button class="menu-toggle" aria-label="Menu" onclick="alert('Menu functionality on mobile placeholder')">☰</button>
-            <a href="#" class="logo">Ayan’s <span>Collection</span></a>
-            
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
+    <audio id="ambient-sound" loop muted> <source src="sound.mp3" type="audio/mpeg">
+    </audio>
 
-            <div class="header-actions">
-                <button class="icon-btn" onclick="openOrderHistory()" title="My Orders" aria-label="Order History">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                </button>
-                <button class="cart-trigger" onclick="toggleCart()" aria-label="Open Cart">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                    <span class="cart-count" id="cart-count">0</span>
-                </button>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    
+    <div id="start-screen">
+        <h2>SECURE SYSTEM INITIATION</h2>
+        <button id="enter-btn">ENTER SYSTEM</button>
+    </div>
+
+
+    <div id="boot-screen">
+        <div>INITIALIZING TRIO LOCK PROTOCOLS...</div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+        <div class="loader-text" id="loader-status">LOADING SYSTEM DATA...</div> 
+    </div>
+
+    <div class="sound-toggle muted" id="sound-btn" style="display: none;"> <div class="sound-bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sound-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </div>
+    </div>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1 class="glitch" data-text="TRIO LOCK">TRIO LOCK</h1>
+            <p class="subtitle">AI-DRIVEN BIOMETRIC ACCESS CONTROL SYSTEM<br>SECURE. FAST. INTELLIGENT.</p>
+            <button class="cta-btn" onclick="scrollToSection('about')">Initiate Scan</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="neon-text">System Architecture</h2>
+            <div class="about-grid">
+                <div class="glass-card" data-tilt>
+                    <div class="icon-holo">◉</div>
+                    <h3>Software and AI Layer (Intelligence Layer)</h3>
+                    <p style="margin-top:15px; color:#aaa;">The TRIO LOCK Intelligence Layer runs on a standard Python platform, handling user recognition and decision-making. It features a Tkinter-based interface, with OpenCV processing live video for facial detection and Speech Recognition listening for the command "Open the door." The TensorFlow/Keras model maps the 128-point facial vector and compares it with the authorized database. Upon achieving ≥80% face match and successful voice verification, Python transmits an 'Unlock' signal to the hardware layer via PySerial.</p>
+                </div>
+                <div class="glass-card" data-tilt>
+                    <div class="icon-holo">◈</div>
+                    <h3>Embedded and Hardware Layer (Actuation Layer)</h3>
+                    <p style="margin-top:15px; color:#aaa;">The Embedded Layer directly controls the physical door lock using an Arduino UNO microcontroller, awaiting digital commands from Python. Once the command is received, the Servo Motor rotates to unlock the door, the Green LED illuminates, and the Buzzer confirms 'Access Granted.' For security, the Automatic Relock Protocol engages 3 seconds later, returning the lock to its secure position.</p>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main id="main-content">
-
-        <section class="hero">
-            <div class="container">
-                <h1>Elevate Your Style.</h1>
-                <p>Curated premium essentials for the modern individual.</p>
-                <a href="#shop" class="btn btn-primary">Shop New Arrivals</a>
-            </div>
-        </section>
-
-                
-        <section id="shop" class="container">
-            <div class="controls-bar">
-                <div class="filter-group" id="category-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                </div>
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
-                </div>
-            </div>
-
-            <div id="product-grid" class="product-grid"></div>
-            
-            <div style="text-align: center; margin-bottom: 60px;">
-                <button id="load-more-btn" class="btn btn-outline" onclick="loadMore()">Load More Products</button>
-            </div>
-        </section>
-
-        <section id="about" class="container" style="padding: 80px 20px;">
-            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-                <h2 class="section-title">The Story</h2>
-                <div style="font-size: 1.1rem; color: var(--text-muted);">
-                  <p>🛍️ Nowadays, finding good products online isn’t easy — comparing items, checking ratings and reviews takes time and often ends in disappointment. That’s exactly why <strong>Ayan’s Collection</strong> was created ✨ so you can shop without stress and confusion. I personally verify every product — ⭐ ratings, 📝 reviews, 📸 customer real photos, 🧵 quality and 💰 value for the price. Only the ones that truly stand out become a part of Ayan’s Collection because your money deserves happiness, not regret 🫶 No more searching from place to place — all the best products are here in one trusted space. My goal is simple: to give you the best products at the right price while saving your time ⏳ so your shopping becomes smooth ✔ trustworthy ✔ and truly satisfying ✔</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="terms" class="legal-section">
-            <div class="container">
-                <h2 class="section-title">Legal Information</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                    <div class="legal-block">
-                        <h3>Terms & Conditions</h3>
-                        <p class="legal-text">By accessing Ayan's Collection, you agree to be bound by these terms of service. All products are subject to availability. Prices are subject to change without notice.</p>
-                    </div>
-                    <div class="legal-block">
-                        <h3>Privacy Policy</h3>
-                        <p class="legal-text">We respect your privacy. We use local storage to maintain your cart session. We do not sell your data to third parties. External product images are served via Facebook/CDN servers.</p>
-                    </div>
-                    <div class="legal-block">
-                        <h3>Refund Policy</h3>
-                        <p class="legal-text">We offer a 5-day return policy for unused items in original packaging. To initiate a return, please contact support with your Order ID.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer style="background: var(--dark-header); color: #fff; padding: 40px 0; text-align: center;">
+    <section id="timeline">
         <div class="container">
-            <p>&copy; 2025 Ayan’s Collection. All rights reserved.</p>
-            <p style="font-size:0.8rem; color:#444; margin-top:10px;">Thank You</p>
+            <h2 class="neon-text" style="text-align: center; margin-bottom: 50px;">Processing Logic</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="progress-bar"></div>
+                
+                <div class="timeline-item">
+                    <span class="step-number"></span>
+                    <div class="glass-card">
+                        <h3>Start & Monitoring</h3>
+                        <p>The user launches the program; the GUI, camera, and microphone activate and begin real-time monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="step-number"></span>
+                    <div class="glass-card">
+                        <h3>Dual Authentication</h3>
+                        <p>The system listens for "Open the door", captures the user's face, and verifies identity. Access proceeds only if face match ≥ 80% and the command is correct.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="step-number"></span>
+                    <div class="glass-card">
+                        <h3>Unlock & Feedback</h3>
+                        <p>On successful authentication, Python sends an unlock signal to Arduino; the Servo Motor opens the door, and the green LED with buzzer confirms access.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="step-number"></span>
+                    <div class="glass-card">
+                        <h3>Emergency Bypass & Auto-Relock</h3>
+                        <p>The emergency password "1234" can unlock the door if biometrics fail, and after 3 seconds the system automatically re-locks the door.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="neon-text">Core Capabilities</h2>
+            <div class="features-grid">
+                <div class="glass-card" data-tilt>
+                    <h3>Triple-Layer Security</h3>
+                    <p style="font-size: 0.9rem; margin-top:10px; color:#bbb;">Face + Voice + Password = Near-zero unauthorized access.</p>
+                </div>
+                <div class="glass-card" data-tilt>
+                    <h3>Ultra-Fast AI Access</h3>
+                    <p style="font-size: 0.9rem; margin-top:10px; color:#bbb;">≈0.3s unlock with 99.9% accurate recognition.</p>
+                </div>
+                <div class="glass-card" data-tilt>
+                    <h3>High Tech, Low Cost</h3>
+                    <p style="font-size: 0.9rem; margin-top:10px; color:#bbb;">AI security built with only ~₹526 hardware.</p>
+                </div>
+                <div class="glass-card" data-tilt>
+                    <h3>Auto-Relock Safety</h3>
+                    <p style="font-size: 0.9rem; margin-top:10px; color:#bbb;">Door auto-locks after 3 seconds—no user mistakes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2 class="neon-text">The Architects</h2>
+            <div class="team-grid">
+                <div class="glass-card team-member-card" data-tilt>
+                    <img src="Ayan.png" alt="System Developer">
+                    <h4>System Developer</h4>
+                    <p>Department of Diploma in CSE (Second year)</p>
+                    <div>Lead Developer & System Implementer & Bug tester</div>
+                </div>
+                
+                <div class="glass-card team-member-card" data-tilt>
+                    <img src="aq1-removebg-preview.png" alt="Structure Designer">
+                    <h4>Structure Designer</h4>
+                    <p>Department of Diploma in CSE (Second year)</p>
+                    <div>Lead Structural & Model Designer & Research Collaborator & Project Naming Contributor</div>
+                </div>
+                
+                <div class="glass-card team-member-card" data-tilt>
+                    <img src="Saytam.png" alt="Research Assistant">
+                    <h4>Research Assistant</h4>
+                    <p>Department of Diploma in CSE (Second year)</p>
+                    <div>Lead Structural & Model Designer Research Support & Bug tester</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo">
+        <div class="container">
+            <h2 class="neon-text" style="margin-bottom: 30px;">Live System Demo</h2>
+            
+            <div class="demo-frame" data-tilt-video>
+                <video id="demo-video" loop muted playsinline style="width: 100%; height: 100%; object-fit: contain;">
+                    <source src="your_demo_video_url_or_path.mp4" type="video/mp4">
+                 
+                </video>
+            </div>
+            
+            <div class="demo-controls">
+                <button class="demo-btn" id="play-btn">▶ Play</button>
+                <button class="demo-btn" id="pause-btn">⏸ Pause</button>
+                <button class="demo-btn" id="restart-btn">↻ Restart</button>
+                <button class="demo-btn muted" id="demo-mute-btn">🔇 Mute</button> </div>
+            
+            <p class="subtitle" style="text-align: center; margin-top: 30px; color: var(--cyan);"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="hud-line"></div>
+            <p>TRIO LOCK SYSTEM  // SYSTEM SECURE</p>
+            <p style="margin-top: 10px; color: #444;">© 2025 Ayan Mondal • Secure & Encrypted Connection </p>
         </div>
     </footer>
 
-    <div class="modal-backdrop" id="product-modal" role="dialog" aria-modal="true">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-image">
-                <img id="modal-img" src="" alt="">
-            </div>
-            <div class="modal-info">
-                <span id="modal-cat" style="color: var(--accent-color); font-weight: bold; font-size: 0.8rem;">CATEGORY</span>
-                <h2 id="modal-title" style="font-size: 2rem; margin: 10px 0;">Product Title</h2>
-                <div id="modal-rating" style="color: #FFD700; margin-bottom: 15px;">★★★★★</div>
-                <p id="modal-price" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;">$0.00</p>
-                <p id="modal-desc" style="color: var(--text-muted); margin-bottom: 30px;">Description goes here.</p>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 5px; font-weight: 600;">Quantity</label>
-                    <input type="number" id="modal-qty" value="1" min="1" style="padding: 8px; width: 60px; border: 1px solid #ddd; border-radius: 4px;">
-                </div>
-                <button id="modal-add-btn" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-backdrop" id="cart-backdrop" onclick="toggleCart()"></div>
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-header">
-            <h3>Your Bag</h3>
-            <button onclick="toggleCart()" style="font-size: 1.5rem;">×</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <div style="text-align: center; margin-top: 50px; color: #999;">Your cart is empty.</div>
-        </div>
-        <div class="cart-footer">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 700; font-size: 1.2rem;">
-                <span>Total</span>
-                <span id="cart-total">₹0.00</span>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="openCheckoutForm()">
-                <span>Checkout via WhatsApp</span>
-            </button>
-        </div>
-    </div>
-
-    <div class="modal-backdrop" id="checkout-modal">
-        <div class="checkout-modal-content">
-            <button class="modal-close" onclick="closeCheckoutForm()">×</button>
-            <h2 style="margin-bottom: 20px;">Delivery Details</h2>
-            <form id="order-form" onsubmit="submitOrder(event)">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="cust-name" class="form-input" required placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="cust-phone" class="form-input" required placeholder="Your Mobile Number">
-                </div>
-                <div class="form-group">
-                    <label>Delivery Address</label>
-                    <textarea id="cust-address" class="form-input" rows="3" required placeholder="Full Address with Pincode"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order on WhatsApp</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal-backdrop" id="history-modal">
-        <div class="checkout-modal-content">
-            <button class="modal-close" onclick="closeHistoryModal()">×</button>
-            <h2 style="margin-bottom: 20px;">My Past Orders</h2>
-            <div id="history-list" style="max-height: 300px; overflow-y: auto;">
-                <p style="color:#999; text-align:center;">No previous orders found.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="toast">Item added to cart!</div>
-
     <script>
-        /* =========================================
-           CONFIGURATION
-           ========================================= */
-        const WHATSAPP_NUMBER = "917063768616"; 
+        /* TRIO LOCK SYSTEM CORE LOGIC */
 
-        /* =========================================
-           DATA: PRODUCTS LIST
-           To add/edit products, modify this array directly.
-           ========================================= */
-       const products = [
-  {
-    id: 1,
-    title: "Lightweight South Indian Jewellery Set",
-    price: 219,
-    category: "Jewellery & Accessories",
-    rating: 4.5,
-    stock: 10,
-    description: "Experience the charm of South Indian tradition with this lightweight gold-plated temple jewellery set featuring floral & peacock motifs and matching jhumka earrings — perfect for weddings, festivals and ethnic wear.",
-    facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/588976329_122105602221124731_3514570380443388267_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Lq_9ptSIPqgQ7kNvwG4NzGa&_nc_oc=AdlIZkF9QKxztgiDZfIkHSskafa07dOB__hj7HQJjDQojMshxDTQOeBGI9lAl6jaOXugXK1DLznI6OWx7vtdame4&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=DC4smj3dVytf1DhcUR1w4w&oh=00_Afg0JnxdXxA32V6lzz2xErlfhj7zznfClt0KkDhZCi8DxA&oe=692A6BC5",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 2,
-    title: "Perfect gift for women & girls",
-    price: 179,
-    category: "Jewellery & Accessories",
-    rating: 4.5,
-    stock: 100,
-    description: "Elegant gold-plated pendant set with sparkling stones and matching earrings — lightweight, skin-friendly and perfect for daily wear, parties and special occasions with both Western and traditional outfits. ✨",
-    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589339077_122105603121124731_1175150372668725204_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=gyyev2DarfYQ7kNvwEdreFV&_nc_oc=AdkOdFSaO2Jk7UwYt_RPMdyHp4KmqhlFp7HlvFS5Y91NFcHa0tx5cNa0yhD0E0xk1DL3Pwj0SBmbcsqJ1S7ZktxL&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=5GHVB2WJSWh7wYuVlI0zlg&oh=00_AfgMEDWXA1XOrU0YtVpmmwvsFsMwZReoex9J_VYh9wGhvA&oe=692A4190",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 3,
-    title: "Antique long necklace with matching earrings",
-    price: 389,
-    category: "Jewellery & Accessories",
-    rating: 4.5,
-    stock: 100,
-    description: "Beautiful antique long temple jewellery set with premium gold-plated finish and matching earrings — lightweight, skin-friendly and perfect for weddings, festivals, parties and all special ethnic occasions. ✨",
-    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589021609_122105606217124731_5027186269249304333_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=4f3d1wh-1owQ7kNvwGT9xoi&_nc_oc=AdmLKlXiQ_rkun0XhG-AMN9t4-VwxcHf-EJH12Mh2i3wWqZG9KFIgtR5a0eqn_ZvwqBfDTRAtCg8YWInWfkwNmus&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=MKMq5lJOFyce_tB2ddWsKQ&oh=00_AfjA0KOu9l6ZUWRKZ41gqQb229svf_338j-BWadATHiKOg&oe=692A3CA4",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 4,
-    title: "Luxury gold-tone shine that lasts for years",
-    price: 489,
-    category: "Jewellery & Accessories",
-    rating: 4.5,
-    stock: 100,
-    description: "Tarnish-free waterproof clover jewellery set with necklace, earrings and ring — keeps its gold shine without fading or rusting, lightweight and skin-friendly, perfect for office, parties and daily wear with Western or ethnic outfits. ✨",
-    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589323853_122105609415124731_7068192762721744857_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=KoZBVR5qxYEQ7kNvwE7yTFg&_nc_oc=AdlSOYnS7usC2_4vOtFy1uIRl5f7lJHVz_BNgBDV7x_qO56jnNozLPUex0TlQcs6gKiK31XCKf-QmIShs_M_tKsa&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=tB7H8JrkkPhhITSZrEgP5w&oh=00_AfgaYMQFiMjael22PsHPrwqW9BQSSJlgcNccz4pp-lmLkQ&oe=692A5494",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 6,
-    title: "Available Sizes: L & XL",
-    price: 419,
-    category: "Women’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: "Black & white A-line floral dress made from soft, breathable fabric — stylish, flowy and flattering for all body types, perfect for office, college, casual outings and parties. ✨",
-    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/588752077_122105611833124731_611473601390095039_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=oeoeWJEPu5oQ7kNvwGf2xB4&_nc_oc=AdkFjD8GG1xJOB2WEZJ3niIu7DsvPsgoh7070GUs5Ebupf2wlftApxInDs2QhWtVe2dXdfXm_d2-8WSl81lDHvwg&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=mW9twcH3mIMGLI6DDbFXGQ&oh=00_AfiJYMArQZZOh8KaLvug4_S_lre5WyUA-AW8pSded-OlRA&oe=692A6CEC",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 7,
-    title: "Perfect Gift for Women",
-    price: 419,
-    category: "Women’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: "Black fit & flare maxi dress in soft cotton blend with floral print, round neck and short sleeves — flattering, comfortable and perfect for daily wear, college, casual outings and informal gatherings. ✨",
-    facebook_image_url: "https://scontent.fccu4-3.fna.fbcdn.net/v/t39.30808-6/589588209_122105612967124731_7398932561858807851_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7cPJJmXbFL8Q7kNvwHtmhUl&_nc_oc=AdncWu3x3wxFgoa_kjnyrz9l12RePcc_QP9XrTiu-7VmWxd3__HmkESSZguJzLynuukJThrWCvkMvTNHmz8g-Kwc&_nc_zt=23&_nc_ht=scontent.fccu4-3.fna&_nc_gid=-5BwdiBmUjJxPUP7oKdomg&oh=00_AfjdkVix-UEbnkyOcW_-osEb1b81NoAri_ZHL7XFTgsXDQ&oe=692A650B",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 8,
-    title: "Blue Saree with White Blouse",
-    price: 329,
-    category: "Women’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: "Blue handloom khadi cotton saree with solid pattern, tassel pallu and matching blouse piece — soft, breathable and perfect for festive wear, parties and everyday elegant styling. ✨",
-    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589323860_122105613417124731_252424115351349736_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ZgJqP8UGXK0Q7kNvwHDdVIL&_nc_oc=AdnRFBt3KX5WohCXFpkO5742NZEwKZ4pvR3yA-7iNtMdIPKcxQXrjC6YkwGIbyPyIbbLJHiGbu0OH9IJAtjIBTNF&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=1hGF9Ne30maMwKAn1C5nJQ&oh=00_Afg5PjsKayJbA3MH5TAZmqpzZFIYLlRgYcoKcphPwbws0g&oe=692A5BBB",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 9,
-    title: "White Sambalpuri Cotton Printed Saree for Women",
-    price: 429,
-    category: "Women’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: " White Sambalpuri cotton saree with botanical print, big printed border and printed pallu — soft, elegant and perfect for parties, festive functions and family gatherings. (Note: blouse piece not included) ✨",
-    facebook_image_url: "https://scontent.fccu4-2.fna.fbcdn.net/v/t39.30808-6/589403552_122105615901124731_1370191619542719306_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=IfdzvgEC1M0Q7kNvwG1Af3x&_nc_oc=Adm_z6f9LxS2gyqktdfxIw84NJk3FxdSiKlQWoiv10BAkYIwAPP_kqlJaIusSvvgfjeZVLcOCowyJkfDfnMjAJYx&_nc_zt=23&_nc_ht=scontent.fccu4-2.fna&_nc_gid=jeBeWwhBtOmVZqEZpTqQkA&oh=00_AfhoZ3SFlrjctnWkekx030sLl1VM7_kczyLBu3CCDCmBSw&oe=692A5716",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-   
-  },
-  {
-    id: 10,
-    title: "Stylish Winter Fleece Hood Jacket for Men | Regular Fit",
-    price: 619,
-    category: "men’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: "Black fleece hooded jacket made from soft warm fabric with long sleeves, cuffed design and zip closure — cozy, stylish and perfect for daily wear and casual outings. 🖤✨",
-    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589354338_122105617581124731_7708289108035304924_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=DRGYt7zUmo8Q7kNvwHpUaX9&_nc_oc=Adnb6NyvgaO7kh_-Jmezo-3ofdPIC96JhZs8n1LzjIl4nDx5Anz84S50kfaalOFqoilFWoqUsrEwSicoBf9LezuM&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=op-6qAxoBYZ3bmKur0jISQ&oh=00_Afj0_NVFzgTfFxAfwimvt5XGkvVTLbCGULg5CNcM_h3Ihg&oe=692A4964",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  },
-  {
-    id: 11,
-    title: "Men’s White Typographic Printed Fleece Sweatshirt",
-    price: 389,
-    category: "men’s Clothing / Apparel",
-    rating: 4.5,
-    stock: 100,
-    description: "Soft fleece sweatshirt with trendy typographic print, round neck and cuffed long sleeves — warm, breathable and perfect for winter, college, casual outings and daily wear with effortless layering. ✨",
-    facebook_image_url: "https://scontent.fccu25-1.fna.fbcdn.net/v/t39.30808-6/589074409_122105621301124731_8343346721386994569_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=agv7Q2K2nRgQ7kNvwGByILz&_nc_oc=Adk2p4jtCZxj6vqq8Eq9JIQRrBjdmt7ZVdpvjTSc6ubeVuvj4pw8_StmZLshExVOSk1aSloOSFjeqduU1zsWAzOB&_nc_zt=23&_nc_ht=scontent.fccu25-1.fna&_nc_gid=PrQD27qDxucf5c5ttQCuAA&oh=00_AfgO6o1vZBuWv0-V4HJugXzlsbgSIvB6TylWLu63_AEDyA&oe=692A4AE7",
-    fallback_image: "https://via.placeholder.com/800x800?text=No+Image"
-  }
-];
+        const startScreen = document.getElementById('start-screen');
+        const enterBtn = document.getElementById('enter-btn');
+        const bootScreen = document.getElementById('boot-screen');
+        const bgVideo = document.getElementById('video-bg');
+        const demoVideo = document.getElementById('demo-video');
+        const ambientAudio = document.getElementById('ambient-sound');
+        const soundBtn = document.getElementById('sound-btn');
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        const demoMuteBtn = document.getElementById('demo-mute-btn');
 
-        /* =========================================
-           STATE & INITIALIZATION
-           ========================================= */
-        let cart = JSON.parse(localStorage.getItem('ayans_cart')) || [];
-        let userInfo = JSON.parse(localStorage.getItem('user_info')) || {};
-        let orderHistory = JSON.parse(localStorage.getItem('order_history')) || [];
-        let currentFilter = 'all';
-        let visibleLimit = 6;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCategories();
-            renderProducts();
-            updateCartUI();
-            setupEventListeners();
+        // Function to run the preloader sequence
+        function runPreloader() {
+            const progress = document.querySelector('.loader-progress');
+            const status = document.getElementById('loader-status');
+            
+            // Start video loading in the background
+            bgVideo.load();
+            demoVideo.load();
 
-            if(userInfo.name) document.getElementById('cust-name').value = userInfo.name;
-            if(userInfo.phone) document.getElementById('cust-phone').value = userInfo.phone;
-            if(userInfo.address) document.getElementById('cust-address').value = userInfo.address;
+            let width = 0;
+            const interval = setInterval(() => {
+                width += Math.random() * 5;
+                if(width > 100) width = 100;
+                progress.style.width = width + '%';
+
+                if (width > 30) status.innerText = "LOADING ASSETS...";
+                if (width > 60) status.innerText = "CALIBRATING OPTICS...";
+                if (width > 90) status.innerText = "SYSTEM READY";
+
+                if (width === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        bootScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            bootScreen.style.display = 'none';
+                            // Start playing videos after boot
+                            bgVideo.play().catch(err => console.log('Background video autoplay blocked'));
+                            demoVideo.play().catch(err => console.log('Demo video autoplay blocked'));
+                        }, 500);
+                    }, 500);
+                }
+            }, 30);
+        }
+
+        // 1. INITIAL ENTRY & AUDIO START
+        enterBtn.addEventListener('click', () => {
+            // Hide start screen
+            startScreen.style.opacity = '0';
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+                
+                // Show ambient sound toggle
+                soundBtn.style.display = 'flex';
+
+                // Play ambient audio, unmute, and start fade-in
+                ambientAudio.muted = false;
+                ambientAudio.play().catch(err => console.log('Ambient audio autoplay blocked:', err));
+                soundBtn.classList.remove('muted');
+                
+                // Audio fade-in
+                ambientAudio.volume = 0;
+                let vol = 0;
+                const fade = setInterval(() => {
+                    vol += 0.05;
+                    if(vol >= 0.5) {
+                        vol = 0.5;
+                        clearInterval(fade);
+                    }
+                    ambientAudio.volume = vol;
+                }, 100);
+
+                // Run the preloader sequence
+                runPreloader();
+
+            }, 1000); // Wait for fade-out transition
         });
 
-        /* =========================================
-           RENDER LOGIC (PUBLIC)
-           ========================================= */
-        function renderCategories() {
-            const cats = new Set(products.map(p => p.category));
-            const container = document.getElementById('category-filters');
-            let html = `<button class="filter-btn ${currentFilter==='all'?'active':''}" data-filter="all" onclick="setFilter('all')">All</button>`;
-            cats.forEach(c => {
-                html += `<button class="filter-btn ${currentFilter===c?'active':''}" data-filter="${c}" onclick="setFilter('${c}')">${c}</button>`;
-            });
-            container.innerHTML = html;
-        }
+        // 2. DEMO VIDEO CONTROLS
+        document.getElementById('play-btn').addEventListener('click', () => {
+            demoVideo.play();
+        });
 
-        function setFilter(cat) {
-            currentFilter = cat;
-            renderProducts();
-            renderCategories(); // Re-render to update active state
-        }
+        document.getElementById('pause-btn').addEventListener('click', () => {
+            demoVideo.pause();
+        });
 
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            const search = document.getElementById('search-input').value.toLowerCase();
-            grid.innerHTML = '';
+        document.getElementById('restart-btn').addEventListener('click', () => {
+            demoVideo.currentTime = 0;
+            demoVideo.play();
+        });
 
-            const filtered = products.filter(p => {
-                const matchesCat = currentFilter === 'all' || p.category === currentFilter;
-                const matchesSearch = p.title.toLowerCase().includes(search);
-                return matchesCat && matchesSearch;
-            });
-
-            if (filtered.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center;">No products found.</p>';
-                document.getElementById('load-more-btn').style.display = 'none';
-                return;
-            }
-
-            const toShow = filtered.slice(0, visibleLimit);
-            document.getElementById('load-more-btn').style.display = filtered.length > visibleLimit ? 'inline-flex' : 'none';
-
-            toShow.forEach(p => {
-                const stars = '★'.repeat(Math.round(p.rating || 5)) + '☆'.repeat(5 - Math.round(p.rating || 5));
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="card-image-wrapper" onclick="openModal(${p.id})">
-                        <span class="card-badge">${p.category}</span>
-                        <img src="${p.facebook_image_url}" 
-                             alt="${p.title}" 
-                             loading="lazy"
-                             onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'img-placeholder\\'><span>Image Unavailable</span></div>'">
-                    </div>
-                    <div class="card-details">
-                        <h3 class="card-title">${p.title}</h3>
-                        <div style="color: #FFD700; font-size: 0.8rem;">${stars}</div>
-                        <span class="card-price">₹${parseFloat(p.price).toFixed(2)}</span>
-                        <div class="card-actions">
-                            <button class="btn btn-outline btn-card" onclick="openModal(${p.id})">View</button>
-                            <button class="btn btn-primary btn-card" onclick="addToCart(${p.id})">Add to Cart</button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function loadMore() {
-            visibleLimit += 6;
-            renderProducts();
-        }
-
-        /* =========================================
-           MODAL LOGIC
-           ========================================= */
-        function openModal(id) {
-            const p = products.find(x => x.id === id);
-            if (!p) return;
-
-            const img = document.getElementById('modal-img');
-            img.src = p.facebook_image_url;
-            img.onerror = function() { this.src = p.fallback_image || 'https://via.placeholder.com/800x800?text=No+Image'; };
-            
-            document.getElementById('modal-title').innerText = p.title;
-            document.getElementById('modal-price').innerText = `₹${parseFloat(p.price).toFixed(2)}`;
-            document.getElementById('modal-desc').innerText = p.description || 'No description available.';
-            document.getElementById('modal-cat').innerText = p.category ? p.category.toUpperCase() : 'GENERAL';
-            document.getElementById('modal-rating').innerText = '★'.repeat(Math.round(p.rating || 5));
-            document.getElementById('modal-qty').value = 1;
-            
-            const btn = document.getElementById('modal-add-btn');
-            btn.onclick = () => {
-                const qty = parseInt(document.getElementById('modal-qty').value);
-                addToCart(p.id, qty);
-                closeModal();
-            };
-
-            document.getElementById('product-modal').classList.add('open');
-        }
-
-        function closeModal() {
-            document.getElementById('product-modal').classList.remove('open');
-        }
-
-        /* =========================================
-           CART LOGIC
-           ========================================= */
-        function toggleCart() {
-            document.getElementById('cart-drawer').classList.toggle('open');
-            document.getElementById('cart-backdrop').classList.toggle('open');
-        }
-
-        function addToCart(id, qty = 1) {
-            const existing = cart.find(item => item.id === id);
-            if (existing) {
-                existing.qty += qty;
+        // New Demo Mute/Unmute Button
+        demoMuteBtn.addEventListener('click', () => {
+            if (demoVideo.muted) {
+                demoVideo.muted = false;
+                demoMuteBtn.innerHTML = '🔊 Unmute';
+                demoMuteBtn.classList.remove('muted');
             } else {
-                const p = products.find(x => x.id === id);
-                if(p) cart.push({ ...p, qty: qty });
+                demoVideo.muted = true;
+                demoMuteBtn.innerHTML = '🔇 Mute';
+                demoMuteBtn.classList.add('muted');
             }
-            saveCart();
-            showToast("Item added to bag!");
-        }
+        });
 
-        function updateItemQty(id, delta) {
-            const item = cart.find(x => x.id === id);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) {
-                    cart = cart.filter(x => x.id !== id);
-                }
-                saveCart();
-            }
-        }
 
-        function saveCart() {
-            localStorage.setItem('ayans_cart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            const itemsEl = document.getElementById('cart-items');
-            const totalEl = document.getElementById('cart-total');
-            
-            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            countEl.innerText = totalQty;
-
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            totalEl.innerText = '₹' + totalPrice.toFixed(2);
-
-            if (cart.length === 0) {
-                itemsEl.innerHTML = '<div style="text-align: center; margin-top: 50px; color: #999;">Your bag is empty.</div>';
-            } else {
-                itemsEl.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.facebook_image_url}" class="cart-item-img" onerror="this.src='https://via.placeholder.com/70'">
-                        <div class="cart-item-details">
-                            <div style="font-weight: 600; font-size: 0.9rem;">${item.title}</div>
-                            <div style="color: var(--text-muted); font-size: 0.85rem;">₹${item.price} x ${item.qty}</div>
-                            <div class="qty-controls">
-                                <button class="qty-btn" onclick="updateItemQty(${item.id}, -1)">-</button>
-                                <span>${item.qty}</span>
-                                <button class="qty-btn" onclick="updateItemQty(${item.id}, 1)">+</button>
-                            </div>
-                        </div>
-                        <div style="font-weight: 700;">₹${(item.price * item.qty).toFixed(2)}</div>
-                    </div>
-                `).join('');
-            }
-        }
-
-        /* =========================================
-           CHECKOUT & WHATSAPP
-           ========================================= */
-        function openCheckoutForm() {
-            if (cart.length === 0) return showToast("Cart is empty!");
-            document.getElementById('checkout-modal').classList.add('open');
-            if(document.getElementById('cart-drawer').classList.contains('open')) toggleCart();
-        }
-
-        function closeCheckoutForm() {
-            document.getElementById('checkout-modal').classList.remove('open');
-        }
-
-        function submitOrder(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = document.getElementById('cust-address').value;
-
-            localStorage.setItem('user_info', JSON.stringify({ name, phone, address }));
-
-            let message = `*New Order from Ayan’s Collection* 🛍️\n\n`;
-            message += `*Customer Details:*\n`;
-            message += `👤 Name: ${name}\n`;
-            message += `📞 Phone: ${phone}\n`;
-            message += `📍 Address: ${address}\n\n`;
-            message += `*Order Items:*\n`;
-
-            let total = 0;
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                message += `${index + 1}. ${item.title} (x${item.qty}) - ₹${itemTotal}\n`;
-            });
-
-            message += `\n*Total Amount: ₹${total.toFixed(2)}*`;
-            message += `\n\n---------------------------`;
-
-            const newOrder = {
-                date: new Date().toLocaleDateString(),
-                items: `${cart.length} items`,
-                total: total
-            };
-            orderHistory.push(newOrder);
-            localStorage.setItem('order_history', JSON.stringify(orderHistory));
-
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-            
-            cart = [];
-            saveCart();
-            closeCheckoutForm();
-            window.open(url, '_blank');
-        }
-
-        function openOrderHistory() {
-            const list = document.getElementById('history-list');
-            if(orderHistory.length === 0) {
-                list.innerHTML = '<p style="color:#999; text-align:center; padding: 20px;">No past orders found.</p>';
-            } else {
-                list.innerHTML = orderHistory.map(o => `
-                    <div class="history-item">
-                        <div style="display:flex; justify-content:space-between;">
-                            <span class="history-date">${o.date}</span>
-                            <span class="history-total">₹${parseFloat(o.total).toFixed(2)}</span>
-                        </div>
-                        <div style="font-size:0.9rem;">${o.items}</div>
-                    </div>
-                `).reverse().join('');
-            }
-            document.getElementById('history-modal').classList.add('open');
-        }
-
-        function closeHistoryModal() {
-            document.getElementById('history-modal').classList.remove('open');
-        }
-
-        function showToast(msg) {
-            const t = document.getElementById("toast");
-            t.innerText = msg;
-            t.className = "show";
-            setTimeout(() => { t.className = t.className.replace("show", ""); }, 3000);
-        }
-
-        function setupEventListeners() {
-            document.getElementById('search-input').addEventListener('input', renderProducts);
-            
-            const backdrops = document.querySelectorAll('.modal-backdrop');
-            backdrops.forEach(bd => {
-                bd.addEventListener('click', (e) => {
-                    if (e.target === bd) {
-                        bd.classList.remove('open');
+        // 3. AMBIENT AUDIO TOGGLE
+        soundBtn.addEventListener('click', () => {
+            if (ambientAudio.paused || ambientAudio.muted) {
+                ambientAudio.muted = false; // Unmute
+                ambientAudio.play();
+                soundBtn.classList.remove('muted');
+                
+                // Fade-in logic
+                let vol = ambientAudio.volume > 0 ? ambientAudio.volume : 0;
+                const fade = setInterval(() => {
+                    vol += 0.05;
+                    if(vol >= 0.5) {
+                        vol = 0.5;
+                        clearInterval(fade);
                     }
+                    ambientAudio.volume = vol;
+                }, 100);
+
+            } else {
+                // Fade-out logic
+                let vol = ambientAudio.volume;
+                const fade = setInterval(() => {
+                    vol -= 0.05;
+                    if(vol <= 0) {
+                        vol = 0;
+                        ambientAudio.muted = true; // Hard mute
+                        soundBtn.classList.add('muted');
+                        clearInterval(fade);
+                    }
+                    ambientAudio.volume = vol;
+                }, 100);
+            }
+        });
+
+        // 4. CUSTOM CURSOR (Disable on touch/mobile for better performance)
+        if (!('ontouchstart' in window) && !navigator.maxTouchPoints) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+
+            document.querySelectorAll('a, button, .glass-card, .sound-toggle, .demo-btn, .demo-frame').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursor.style.backgroundColor = 'rgba(0, 242, 255, 0.1)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.backgroundColor = 'transparent';
                 });
             });
+        } else {
+            // Hide cursors on touch devices
+            cursor.style.display = 'none';
+            cursorDot.style.display = 'none';
+        }
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal();
-                    closeCheckoutForm();
-                    closeHistoryModal();
-                    if (document.getElementById('cart-drawer').classList.contains('open')) toggleCart();
+        // 5. SCROLL REVEAL & PARALLAX (Logic remains the same)
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if(entry.target.classList.contains('timeline-item')) {
+                        updateTimeline();
+                    }
                 }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .glass-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        function updateTimeline() {
+            const items = document.querySelectorAll('.timeline-item.visible');
+            const totalItems = document.querySelectorAll('.timeline-item').length;
+            const bar = document.getElementById('progress-bar');
+            
+            if(items.length > 0) {
+                // Calculate percentage based on visible items
+                const percentage = (items.length / totalItems) * 100;
+                bar.style.height = percentage + '%';
+            }
         }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        }
+
+
+        // 6. 3D TILT EFFECT 
+        function initializeTilt() {
+            const tiltElements = document.querySelectorAll('[data-tilt], [data-tilt-video]');
+            const maxTilt = 8; // Slightly less intense tilt
+
+            function applyTilt(element, rotateX, rotateY) {
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            }
+
+            function resetTilt() {
+                 tiltElements.forEach(element => {
+                    element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                });
+            }
+
+            // --- Mouse Tilt Logic (Desktop) ---
+            if (!('ontouchstart' in window) && !navigator.maxTouchPoints) {
+                tiltElements.forEach(element => {
+                    element.addEventListener('mousemove', (e) => {
+                        const rect = element.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        // Normalized tilt calculation
+                        const rotateX = ((y - centerY) / centerY) * -maxTilt; 
+                        const rotateY = ((x - centerX) / centerX) * maxTilt;
+
+                        applyTilt(element, rotateX, rotateY);
+                    });
+
+                    element.addEventListener('mouseleave', resetTilt);
+                });
+            }
+
+
+            // --- Gyroscope Tilt Logic (Mobile/Touch) ---
+            if (window.DeviceOrientationEvent && ('ontouchstart' in window || navigator.maxTouchPoints)) {
+                
+                const handleDeviceOrientationEvent = (event) => {
+                    // Clamp beta (X-axis tilt) and gamma (Y-axis tilt) for better control
+                    const beta = Math.min(Math.max(event.beta, -45), 45); 
+                    const gamma = Math.min(Math.max(event.gamma, -45), 45);
+                    
+                    const rotateX = (beta / 45) * maxTilt * -1; // Inverted for natural phone hold
+                    const rotateY = (gamma / 45) * maxTilt;
+
+                    tiltElements.forEach(element => {
+                        applyTilt(element, rotateX, rotateY);
+                    });
+                }
+                
+                window.addEventListener('deviceorientation', handleDeviceOrientationEvent);
+                window.addEventListener('orientationchange', resetTilt);
+                
+                console.log("Gyroscope tilt effect activated.");
+            }
+        }
+
+        // Initialize the combined tilt effect
+        initializeTilt();
 
     </script>
 </body>
